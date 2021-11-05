@@ -1,0 +1,410 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>FoodBakery</title>
+	<!-- Google Font Family Link Start -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800">
+	<!-- Google Font Family Link End -->
+
+	<!-- CSS -->
+	<link href="{% static 'css/iconmoon.css' %}" rel="stylesheet">
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'css/cs-foodbakery-plugin.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="{% static 'css/bootstrap-slider.css' %}" rel="stylesheet">
+	
+	<!-- JAVASCRIPT -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="{% static 'js/modernizr.js' %}"></script>
+	<script src="{% static 'js/bootstrap.js' %}"></script>
+
+	<style>
+		body, .main-section p, .mce-content-body p{
+			font:Normal  14px/24px "Open Sans", sans-serif;letter-spacing: 0px;text-transform: none;color: #515151 !important;
+		}
+	</style>
+</head>
+
+<body>
+	<!--Main Wrapper-->
+	<div class="wrapper">
+		<!-- Header Start -->
+		<header id="header">
+			<div class="main-header">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+							<div class="logo">
+								<figure>
+									<a href="index.html" class="light-logo">
+										<img src="{% static 'logo/foodOnlineLogo.png' %}" alt="FoodOnline" width="250">
+									</a>
+								</figure>
+							</div>
+							<div class="main-nav">
+									<nav id="site-navigation" class="main-navigation">
+										<ul>
+											<li>
+												<a href="#">Demos</a>
+												<ul>
+													<li><a href="index.html">Food Bakery</a></li>
+													<li><a href="mexican-restaurant.html">Mexican Restaurant</a></li>
+													<li><a href="foodstop.html">Food Stop</a></li>
+													<li><a href="rtl.html">Rtl Demo</a></li>
+													<li><a href="food-cout.html">Food Court</a></li>
+													<li><a href="single-restaurant.html">Single Restaurant Demo</a></li>
+												</ul>
+												<!--End Sub Menu -->
+											</li>
+											<li><a href="listings.html">Restaurants</a></li>
+											<li>
+												<a href="#">Pages</a>
+												<ul>
+													<li><a href="price-plans.html">Price Plans</a></li>
+													<li><a href="how-it-works.html">How it works</a></li>
+													<li><a href="faq.html">FAQ’s</a></li>
+													<li><a href="404.html">404</a></li>
+													<li><a href="search-result.html">Search Result</a></li>
+													<li><a href="contact-us.html">Contact</a></li>
+												</ul>
+												<!--End Sub Menu -->
+											</li>
+											<li>
+												<a href="#">Blogs</a>
+												<ul>
+													<li><a href="blog-large.html">Blog Large</a></li>
+													<li><a href="blog-medium.html">Blog Medium</a></li>
+													<li><a href="blog-masonry.html">Blog Masonry</a></li>
+													<li><a href="blog-detail.html">Blog Detail Page</a></li>
+												</ul>
+												<!--End Sub Menu -->
+											</li>
+										</ul>
+									</nav><!-- .main-navigation -->
+								</div>
+							
+							<div class="main-location">
+								<ul>
+									<li class="location-has-children choose-location">
+										<form action="#">
+											<input type="text" value="" name="location" placeholder="Enter your delivery location" autocomplete="off">
+											<span id="foodbakery_radius_location_open" class="foodbakery-radius-location"><i class="icon-target5"></i></span>
+										</form>
+										
+									</li>
+								</ul>
+								</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<div class="login-option">
+								<a class="cs-color cs-popup-joinus-btn login-popup" data-target="#sign-in" data-toggle="modal" href="#user-register">Login / Register</a><a class="get-start-btn" href="register-restaurant.html">
+									Register
+									Restaurant </a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- Header End -->
+		<!-- Main Section Start -->
+		<div class="main-section">
+			<!-- Home Pages Elements Strat -->
+			<!-- Main Search Start -->
+			<div class="page-section nopadding cs-nomargin" style="padding-top: 200px; padding-bottom: 150px; margin-bottom: 0px; background: url(assets/extra-images/bg-image1.jpg) no-repeat center / cover;">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+							<div class="element-title">
+								<h1 style="font-size: 40px; color: #505050; text-transform: uppercase; line-height: 50px; margin-bottom: 25px; text-align:center;">
+									We are in the business of food<br>our restaurants do</h1>
+								<p style="font-size: 18px; letter-spacing: 1px; color: #505050; text-align:center;">
+									Ridiculus sociosqu
+									cursus neque cursus curae ante scelerisque vehicula.</p>
+							</div>
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+							<div class="main-search fancy bg-holder">
+								<form>
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+											<div class="field-holder">
+												<input type="text" placeholder="Resturant name">
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
+											<div class="field-holder">
+												<ul>
+													<li class="select-location">
+														<div class="foodbakery-locations-fields-group foodbakery-focus-out">
+															<span class="foodbakery-search-location-icon"><i class="icon-location"></i></span>
+															<span id="foodbakery_radius_location_open333" class="foodbakery-radius-location"><i class="icon-target5"></i></span>
+															<input type="text" class="location-field-text filter" placeholder="All Locations">
+														</div>
+														<div class="select-location" id="foodbakery-radius-range333" style="display: none;">
+															<div class="select-popup popup-open">
+																<a id="location_close_popup333" href="javascript:0;" class="location-close-popup">
+																	<i class="icon-times"></i></a>
+																<input type="hidden" class="foodbakery-radius" name="foodbakery_radius" value="10">
+																<p>Show with in</p>
+																<input id="ex16b333" type="text" data-value="10" value="10" style="display: none;">
+																<script>
+																	jQuery(document).ready(function () {
+																		var elem = jQuery("#ex16b333");
+																		if (elem.length != "") {
+																			elem.slider({
+																				step: 1,
+																				min: 0,
+																				max: 500,
+																				value: 10,
+																			});
+																			elem.on("slideStop", function () {
+																				var rang_slider_val = elem.val();
+																				jQuery("#ex16b333CurrentSliderValLabel").html(rang_slider_val);
+																				jQuery("#range-hidden-foodbakery-radius333").val(rang_slider_val);
+																				//foodbakery_restaurant_content("333");
+																			});
+																			elem.on("slide", function () {
+																				jQuery("#ex16b333CurrentSliderValLabel").html(elem.val());
+																			});
+																		}
+
+																		$("#foodbakery_radius_location_open333").click(function () {
+																			$("#foodbakery-radius-range333").show();
+																		});
+																		$("#location_close_popup333").click(function () {
+																			$("#foodbakery-radius-range333").hide();
+																		});
+																	});
+																</script>
+																<span>Miles: <span id="ex16b333CurrentSliderValLabel">10</span></span><br>
+																<p class="my-location">of <i class="cs-color icon-location-arrow"></i><a id="foodbakery-geo-location-all" class="cs-color foodbakery-geo-location313324" href="javascript:void(0)">My location</a></p>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+											<div class="field-holder">
+												<input type="submit" value="Search">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<!-- Main Search End -->
+			
+			<!-- Top Restarurants Section Start -->
+			<div class="page-section nopadding cs-nomargin" style="margin-top: 0px;padding-top: 60px;padding-bottom: 0px;margin-bottom: 0px;background: #ffffff;">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="element-title align-left">
+								<h2>Top Restaurants</h2>
+								<p>Explore restaurants, bars, and cafés by locality</p>
+							</div>
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="company-logo">
+								<ul>
+									<li class="has-border">
+										<figure>
+											<a href="#"><img src="{% static 'extra-images/listing-logo18.png' %}" class="attachment-full size-full wp-post-image" alt=""></a>
+										</figure>
+									</li>
+									<li class="has-border">
+										<figure>
+											<a href="#"><img src="{% static 'extra-images/fb-restaurant-02.jpg' %}" class="attachment-full size-full wp-post-image" alt=""></a>
+										</figure>
+									</li>
+									<li class="has-border">
+										<figure>
+											<a href="#"><img src="assets/extra-images/fb-restaurant-04.jpg" class="attachment-full size-full wp-post-image" alt=""></a>
+										</figure>
+									</li>
+									<li class="has-border">
+										<figure>
+											<a href="#"><img src="assets/extra-images/fb-restaurant-06.jpg" class="attachment-full size-full wp-post-image" alt=""></a>
+										</figure>
+									</li>
+									<li class="has-border">
+										<figure>
+											<a href="#"><img src="assets/extra-images/xlisting-logo03.png.pagespeed.ic_.aT-o9LinEJ.png" class="attachment-full size-full wp-post-image" alt=""></a>
+										</figure>
+									</li>
+									<li class="has-border">
+										<figure>
+											<a href="#"><img src="assets/extra-images/listing-logo09.png" class="attachment-full size-full wp-post-image" alt=""></a>
+										</figure>
+									</li>
+									<li class="has-border">
+										<figure>
+											<a href="#"><img src="assets/extra-images/listing-logo18.png" class="attachment-full size-full wp-post-image" alt=""></a>
+										</figure>
+									</li>
+									<li class="has-border">
+										<figure>
+											<a href="#"><img src="assets/extra-images/fb-restaurant-09.png" class="attachment-full size-full wp-post-image" alt=""></a>
+										</figure>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Top Restarurants Section End -->
+			<!-- Choose From Most Popular Listin Start -->
+			<div class="page-section nopadding cs-nomargin" style="margin-top: 0px;padding-top: 60px;padding-bottom: 50px;margin-bottom: 0px;background: #ffffff;">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="element-title align-center">
+								<h2>Choose From Most Popular Restaurants</h2>
+								<p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+							</div>
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="listing fancy">
+								<ul class="row">
+									<li class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="list-post featured">
+											<div class="img-holder">
+												<figure><a href="#"><img src="assets/extra-images/listing-logo18.png" class="img-thumb wp-post-image" alt=""></a></figure>
+												<span class="restaurant-status close">
+													<em class="bookmarkRibbon"></em>Close
+												</span>
+											</div>
+											<div class="text-holder">
+												<div class="list-rating">
+													<div class="rating-star">
+														<span class="rating-box" style="width: 100%;"></span>
+													</div>
+													<span class="reviews">(1)</span>
+												</div>
+												<div class="post-title">
+													<h5>
+														<a href="listing-detail.html">Restaurant Demo</a>
+														<span class="sponsored text-color">Sponsored</span>
+													</h5>
+												</div>
+												<address> <span>Type of food : </span> Apple Juice</address>
+											</div>
+											<div class="list-option">
+												<a href="javascript:void(0);" class="shortlist-btn" data-toggle="modal" data-target="#sign-in">
+													<i class="icon-heart-o"></i>
+												</a>
+											</div>
+										</div>
+									</li>
+									
+									
+									
+									
+									<li class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="list-post featured">
+											<div class="img-holder">
+												<figure><a href="#"><img src="assets/extra-images/listing-logo09.png" class="img-thumb wp-post-image" alt=""></a></figure>
+												<span class="restaurant-status open">
+													<em class="bookmarkRibbon"></em>open
+												</span>
+											</div>
+											<div class="text-holder">
+												<div class="list-rating">
+													<div class="rating-star">
+														<span class="rating-box" style="width: 100%;"></span>
+													</div>
+													<span class="reviews">(1)</span>
+												</div>
+												<div class="post-title">
+													<h5>
+														<a href="listing-detail.html">Classic Restaurant</a>
+														<span class="sponsored text-color">Sponsored</span>
+													</h5>
+												</div>
+												<address> <span>Type of food : </span> Chicken Roast, Chines
+													Soup, Cold
+													Coffee, Cold Drink, Hot Dogs</address>
+											</div>
+											<div class="list-option">
+												<a href="javascript:void(0);" class="shortlist-btn" data-toggle="modal" data-target="#sign-in">
+													<i class="icon-heart-o"></i>
+												</a>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Choose From Most Popular Listing End -->
+
+			<!-- Home Pages Elements End  -->
+		</div>
+		<!-- Main Section End -->
+		<!-- Footer Start -->
+		<footer id="footer" class="footer-style-2">
+			<div class="footer-widget">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="widget widget-newsletter">
+								<div class="widget-title">
+									<h5>Subscribe to our Newsletter</h5>
+								</div>
+								<div class="fieldset">
+									<form action="#">
+										<div class="field-holder">
+											<label>
+												<i class=" icon-envelope3"></i>
+												<input type="text" class="field-input" placeholder=" Enter Your Email Address...">
+											</label>
+										</div>
+										<div class="field-holder btn-holder">
+											<input class="subscribe-btn bgcolor" type="submit" value="Sign Up">
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="copyright-sec">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="copyright-inner">
+								<div class="copy-right">
+									<p>© 2020 Foodbakery. All Rights Reserved. Developed By <a href="#">Rathan Kumar</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> <!-- /.cs-copyright -->
+		</footer>
+		<!-- Footer End -->
+	</div>
+	
+	<!-- Modal Popup End -->
+	<script src="{% static 'js/scripts.js' %}"></script>
+	<script src="{% static 'js/functions.js' %}"></script>
+</body>
+
+</html>
