@@ -18,74 +18,154 @@
                 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                     <div class="user-dashboard loader-holder">
                         <div class="user-holder">
-                            
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="row">
-                                    <div class="element-title has-border right-filters-row">
-                                        <h5>Recent Orders</h5>
-                                        <div class="right-filters row pull-right">
-                                            <div class="col-lg-6 col-md-6 col-xs-6">
-                                                <div class="input-field">
-                                                    <select class="chosen-select-no-single">
-                                                        <option selected="selected" value="">Select Orders Status</option>
-                                                        <option value="Processing">Processing</option>
-                                                        <option value="Cancelled">Cancelled</option>
-                                                        <option value="Completed">Completed</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="user-orders-list">
-                                        <div class="responsive-table">
-                                            <ul class="table-generic">
-                                                <li class="order-heading-titles">
-                                                    <div>Order id</div>
-                                                    <div>Date</div>
-                                                    <div>Total Price</div>
-                                                    <div>Charges</div>
-                                                    <div>Received</div>
-                                                    <div>Status</div>
-                                                </li>
-                                                <li class="order-heading-titles">
-                                                    <div><a href="#" data-toggle="modal" data-target="#order-det-22606">order-22606</a></div>
-                                                    <div>Apr 9,2020</div>
-                                                    <div>£ 38.99</div>
-                                                    <div>£ 3.90</div>
-                                                    <div>£ 35.09</div>
-                                                    <div><span class="order-status" style="background-color: #047a06;">Completed</span></div>
-                                                </li>
-                                                
-                                                
-                                                
-                                                <li class="order-heading-titles">
-                                                    <div><a href="#" data-toggle="modal" data-target="#order-det-22606">order-22583</a></div>
-                                                    <div>Apr 9,2020</div>
-                                                    <div>£ 26.22</div>
-                                                    <div>£ 2.62</div>
-                                                    <div>£ 23.60</div>
-                                                    <div><span class="order-status" style="background-color: #1e73be;">Processing</span></div>
-                                                </li>
-                                                <li class="order-heading-titles">
-                                                    <div><a href="#" data-toggle="modal" data-target="#order-det-22606">order-22493</a></div>
-                                                    <div>Apr 2,2020</div>
-                                                    <div>£ 28.24</div>
-                                                    <div>£ 2.82</div>
-                                                    <div>£ 25.42</div>
-                                                    <div><span class="order-status" style="background-color: #047a06;">Completed</span></div>
-                                                </li>
-                                            </ul>
+                            <h5 class="text-uppercase">Manage Your Restaurant</h5>
+									<!-- My Restaurants Form Start -->
+									<form action="{% url 'vprofile' %}" method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+										<div class="form-fields-set">
+											<ul>
+												<li>
+													<div class="row">
+														<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+															<div class="restaurant-info">
+																<div class="img-holder">
+																	<ul class="foodbakery-gallery-holder">
+																		<li class="gal-img">
+																			<div class="drag-list">
+																				<div class="item-thumb">
+																					<img class="thumbnail" src="{{profile.profile_picture.url}}" alt="Profile Picture">
+																				</div>
+																			</div>
+																		</li>
+																	</ul>
+																</div>
+																<div class="text-holder">
+																	<label>Update Profile Picture</label>
+																	<div class="upload-gallery">
+																		{{profile_form.profile_picture}}
+																	</div>
+																</div>
+																<label class="text-danger">{{ profile_form.profile_picture.errors }}</label>
+															</div>
+														</div>
+														<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+															<div class="restaurant-info">
+																<div class="img-holder">
+																	<ul class="foodbakery-gallery-holder">
+																		<li class="gal-img">
+																			<div class="drag-list">
+																				<div class="item-thumb">
+																					<img class="thumbnail" src="{{profile.cover_photo.url}}" alt="Cover Photo">
+																				</div>
+																			</div>
+																		</li>
+																	</ul>
+																</div>
+																<div class="text-holder">
+																	<label>Update Cover Photo</label>
+																	<div class="upload-gallery">
+																		{{profile_form.cover_photo}}
+																	</div>
+																	
+																</div>
+																<label class="text-danger">{{ profile_form.cover_photo.errors }}</label>
+															</div>
+														</div>
+														<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+															<div class="restaurant-info">
+																<div class="img-holder">
+																	<ul class="foodbakery-gallery-holder">
+																		<li class="gal-img">
+																			<div class="drag-list">
+																				<div class="item-thumb">
+																					<img class="thumbnail" src="{{vendor.vendor_license.url}}" alt="Vendor License">
+																				</div>
+																			</div>
+																		</li>
+																	</ul>
+																</div>
+																<div class="text-holder">
+																	<label>Update License</label>
+																	<div class="upload-gallery">
+																		{{vendor_form.vendor_license}}
+																	</div>
+																	
+																</div>
+																<label class="text-danger">{{ vendor_form.vendor_license.errors }}</label>
+															</div>
+														</div>
+														<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+															<div class="field-holder">
+																<label>Restaurant name *</label>
+																{{vendor_form.vendor_name}}
+															</div>
+														</div>
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+															<div class="field-holder">
+																<label>Address *</label>
+																{{profile_form.address}}
+																<small class="text-muted float-right">powered by Google</small>
+															</div>
+														</div>
+                                                        
 
-                                        </div>												
-                                    </div>
-                                </div>
-                            </div>
-                            
+                                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+															<div class="field-holder">
+																<label>Country *</label>
+																{{profile_form.country}}
+															</div>
+														</div>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+															<div class="field-holder">
+																<label>State *</label>
+																{{profile_form.state}}
+															</div>
+														</div>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+															<div class="field-holder">
+																<label>City *</label>
+																{{profile_form.city}}
+															</div>
+														</div>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+															<div class="field-holder">
+																<label>Pin Code *</label>
+																{{profile_form.pin_code}}
+															</div>
+														</div>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+															<div class="field-holder">
+																<label>Latitude *</label>
+																{{profile_form.latitude}}
+															</div>
+														</div>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+															<div class="field-holder">
+																<label>Longitude *</label>
+																{{profile_form.longitude}}
+															</div>
+														</div>
+
+
+														
+													</div>
+												</li>
+											</ul>
+											<div>
+												<div class="field-holder">
+													<div class="payment-holder input-button-loader">
+														<input type="submit" value="Update Restaurant">
+													</div>
+												</div>
+											</div>
+										</div>
+									</form>
+									<!-- My Restaurants Form End -->
                         </div>
                     </div>
                 </div>
