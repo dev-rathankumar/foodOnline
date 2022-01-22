@@ -2140,9 +2140,10 @@ table { background-color: transparent; margin-bottom: 15px; width: 100%; border-
 th { text-align: left; }
 table > tbody + tbody { border-top: 2px solid #d2d2d2; }
 table > thead > tr > th { border-bottom: 2px solid #d2d2d2; vertical-align: bottom; }
-table > thead > tr > th, table > tbody > tr > th, table > tfoot > tr > th, table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td { border-top: 1px solid #d2d2d2; border: 1px solid #d2d2d2; line-height: 2.5; padding-left: 7px; vertical-align: top; text-align: center; padding: 12px 16px; }
+table > thead > tr > th, table > tbody > tr > th, table > tfoot > tr > th, table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td { border-top: 1px solid #d2d2d2; border: 1px solid #d2d2d2; line-height: 0.5; padding-left: 7px; vertical-align: top; text-align: center; padding: 12px 16px; }
 .table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > th, .table > caption + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > td, .table > thead:first-child > tr:first-child > td { border-top: 1px solid #d2d2d2; }
 table > caption + thead > tr:first-child > th, table > colgroup + thead > tr:first-child > th, table > thead:first-child > tr:first-child > th, table > caption + thead > tr:first-child > td, table > colgroup + thead > tr:first-child > td, table > thead:first-child > tr:first-child > td { border-bottom: 0; }
+.table td, .table th{vertical-align: middle !important;}
 /* Table typo style End */
 /* Rich Editor Style */
 .rich_editor_text h1, .rich_editor_text h2, .rich_editor_text h3, .rich_editor_text h4, .rich_editor_text h5, .rich_editor_text h6 { margin-bottom: 10px; }

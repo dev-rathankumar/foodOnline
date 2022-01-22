@@ -26,6 +26,9 @@
 
 	<link rel="stylesheet" href="{% static 'css/custom.css' %}">
 
+	<script src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_API_KEY}}&libraries=places&callback=initAutoComplete" async defer></script>
+	<script src="{% static 'js/custom.js' %}"></script>
+
 	<style>
 		body, .main-section p, .mce-content-body p{
 			font:Normal  14px/24px "Open Sans", sans-serif;letter-spacing: 0px;text-transform: none;color: #515151 !important;

@@ -11727,30 +11727,6 @@ jQuery(document).ready(function () {
 
 });
 /*----------Window Load Function Start----------*/
-jQuery(window).load(function () {
-    //Listing_Filter_li();
-    /*Masonry Function Start*/
-    if ($('.grid').length !== 0) {
-        if (typeof jQuery(document).masonry != "undefined") {
-            $('.grid').masonry({
-                itemSelector: '.grid-item',
-            });
-        }
-    }
-    /*Masonry Function End */
 
-    /*Load More Functions Start*/
-    jQuery(function () {
-        jQuery(".review-listing > ul#mylist > li").slice(0, 3).show();
-        jQuery("#load-more").click(function (e) {
-            e.preventDefault();
-            jQuery(".review-listing > ul#mylist > li:hidden").slice(0, 1).show();
-            if (jQuery(".review-listing > ul#mylist > li:hidden").length == 0) {
-                alert("No More Show");
-            }
-        });
-    });
-    /*Load More Functions End*/
-});
 /*HTML Functions End*/
 
