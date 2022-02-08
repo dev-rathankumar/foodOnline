@@ -37,7 +37,7 @@
                                         <a href=""><p class="mb-0 font-weight-bold">{{ food }}</p>
                                         <small class="text-muted">{{food.description}}</small></a>
                                     </td>
-                                    <td><i class="fa fa-pencil" aria-hidden="true"></i> &nbsp; <i class="fa fa-trash text-danger" aria-hidden="true"></i></td>
+                                    <td><a href="{% url 'edit_food' food.id %}" style="color: unset;"><i class="fa fa-pencil" aria-hidden="true"></i></a> &nbsp; <a href="{% url 'delete_food' food.id %}" onclick="return confirm('Are you sure you want to delete this food?')"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a></td>
                                   </tr>
                                 {% endfor %}
                                 </tbody>
