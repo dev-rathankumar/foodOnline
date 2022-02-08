@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+{% include 'includes/alerts.html' %}
+
+<!-- Main Section Start -->
+<div class="main-section">
+    {% include 'includes/cover.html' %}
+    <div class="page-section account-header buyer-logged-in">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <!-- Load the sidebar here -->
+                    {% include 'includes/v_sidebar.html' %}
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <div class="user-dashboard loader-holder">
+                        <div class="user-holder">
+                            <h5 class="text-uppercase">Build Your Food Menu</h5>
+							<hr>
+                            <h6>Menu Categories</h6>
+                            <a href="#" class="btn btn-success float-right m-1"><i class="fa fa-plus" aria-hidden="true"></i> Add Food</a>
+                            <a href="{% url 'add_category' %}" class="btn btn-info float-right m-1"><i class="fa fa-plus" aria-hidden="true"></i> Add Category</a>
+
+                            <table class="table table-hover table-borderless">
+                                
+                                <tbody>
+                                {% for cat in categories %}
+                                  <tr>
+                                    <td class="text-left">{{ forloop.counter }}</td>
+                                    <td class="text-left">
+                                        <a href="{% url 'fooditems_by_category' cat.id %}"><p class="mb-0 font-weight-bold">{{ cat }}</p>
+                                        <small class="text-muted">{{cat.description}}</small></a>
+                                    </td>
+                                    <td><a href="{% url 'edit_category' cat.id %}" style="color:unset;"><i class="fa fa-pencil" aria-hidden="true"></i></a> &nbsp; <a href="{% url 'delete_category' cat.id %}" onclick="return confirm('Are you sure you want to delete this category?')"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a></td>
+                                  </tr>
+                                {% endfor %}
+                                </tbody>
+                              </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main Section End -->
+{% endblock %}

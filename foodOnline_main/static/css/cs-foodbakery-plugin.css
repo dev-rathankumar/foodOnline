@@ -544,7 +544,7 @@
 .user-dashboard .field-holder .loader-state-restaurant, .user-dashboard .field-holder .loader-city-restaurant, .user-dashboard .field-holder .loader-state-publisher, .user-dashboard .field-holder .loader-city-publisher { position: absolute; right: 15px; top: 32px; z-index: 10; background-color: #fff; }
 /* User Dashboard Styel */
 /* user-order */
-.user-dashboard { background-color: #fff; padding: 25px 30px 0; position: relative; min-height: 508px; width: 847px; margin: 0 auto; border-top: 3px solid #dcdcdc; }
+.user-dashboard { background-color: #fff; padding: 25px 30px 30px; position: relative; min-height: 508px; width: 847px; margin: 0 auto; border-top: 3px solid #dcdcdc; }
 .buyer-logged-in .user-dashboard { min-height: 333px; }
 .user-dashboard .element-title { margin-bottom: 30px; }
 .user-dashboard .user-holder { position: relative; }
