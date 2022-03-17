@@ -274,26 +274,26 @@ jQuery(document).ready(function () {
     // }
     /*Location Menu Function End*/
     /*Chosen Select Functions Start*/
-    if (jQuery(".chosen-select, .chosen-select-deselect, .chosen-select-no-single, .chosen-select-no-results, .chosen-select-width").length != '') {
-        var config = {
-            '.chosen-select': {},
-            '.chosen-select-deselect': {
-                allow_single_deselect: true
-            },
-            '.chosen-select-no-single': {
-                disable_search_threshold: 10
-            },
-            '.chosen-select-no-results': {
-                no_results_text: 'Oops, nothing found!'
-            },
-            '.chosen-select-width': {
-                width: "95%"
-            }
-        }
-        for (var selector in config) {
-            $(selector).chosen(config[selector]);
-        }
-    }
+    // if (jQuery(".chosen-select, .chosen-select-deselect, .chosen-select-no-single, .chosen-select-no-results, .chosen-select-width").length != '') {
+    //     var config = {
+    //         '.chosen-select': {},
+    //         '.chosen-select-deselect': {
+    //             allow_single_deselect: true
+    //         },
+    //         '.chosen-select-no-single': {
+    //             disable_search_threshold: 10
+    //         },
+    //         '.chosen-select-no-results': {
+    //             no_results_text: 'Oops, nothing found!'
+    //         },
+    //         '.chosen-select-width': {
+    //             width: "95%"
+    //         }
+    //     }
+    //     for (var selector in config) {
+    //         $(selector).chosen(config[selector]);
+    //     }
+    // }
 
     /*Chosen Select Functions End*/
     /* Date Time picker */

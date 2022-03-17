@@ -5,7 +5,7 @@
     <!-- Header Start -->
     <header id="header">
         <div class="main-header">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                         <div class="logo">
@@ -31,6 +31,13 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="login-option">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'cart' %}">
+                                <i class="fa fa-shopping-cart text-danger" style="font-size: 20px;"></i>
+                                <span class="badge badge-warning" id="cart_counter" style="border-radius: 50px; position: relative; bottom:10px; left: -5px;">{{ cart_count }}</span>
+                            </a>
+                            {% endif %}
+                            <a href="{% url 'marketplace' %}" class="btn btn-outline-danger text-uppercase font-weight-bold">Marketplace</a>
                             {% if user.is_authenticated %}
                             <a class="cs-color cs-popup-joinus-btn login-popup" href="{% url 'myAccount' %}">My Account</a>
                             <a class="cs-color cs-popup-joinus-btn login-popup text-danger" href="{% url 'logout' %}">Logout</a>

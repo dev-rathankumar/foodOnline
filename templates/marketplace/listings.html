@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+<!-- Main Section Start -->
+<div class="main-section">
+    <div class="page-section nopadding cs-nomargin" style="margin-top: 0px;padding-top: 60px;padding-bottom: 10px;margin-bottom: 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <aside class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                            
+                        </aside>
+                        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                            <div class="listing-sorting-holder">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <h4>{{ vendor_count }} Restaurant's found</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="listing simple">
+                                <ul>
+                                    {% for vendor in vendors %}
+                                    <li style="line-height: 15px;">
+                                        <div class="img-holder">
+                                            <figure>
+                                                <a href="#">
+                                                    {% if vendor.user_profile.profile_picture %}
+                                                    <img src="{{ vendor.user_profile.profile_picture.url }}" class="img-list wp-post-image" alt="">
+                                                    {% else %}
+                                                    <img src="{% static 'images/default-profile.png' %}" class="img-list wp-post-image" alt="">
+                                                    {% endif %}
+                                                </a>
+                                            </figure>
+                                            <span class="restaurant-status close"><em class="bookmarkRibbon"></em>Close</span>
+                                        </div>
+                                        <div class="text-holder">
+                                            
+                                            <div class="post-title">
+                                                <h5>
+                                                    <a href="{% url 'vendor_detail' vendor.vendor_slug %}">{{ vendor.vendor_name }}</a>
+                                                </h5>
+                                            </div>
+                                            {% if vendor.user_profile.address %}
+                                            <span><small class="text-muted">{{ vendor.user_profile.address }}</small></span>
+                                            {% endif %}
+                                        </div>
+                                        <div class="list-option">
+
+                                            <a href="{% url 'vendor_detail' vendor.vendor_slug %}" class="viewmenu-btn text-color">View Menu</a>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                    
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        <div class="section-sidebar col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="message-box" style="background-color: #fa9918;">
+                                <strong>I'm not Listed!</strong><span>is your restaurant or
+                                    business not
+                                    listed on over site</span>
+                                <a href="{% url 'registerVendor' %}" class="request-btn">Add Your business!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main Section End -->
+
+{% endblock %}
