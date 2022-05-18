@@ -21,11 +21,11 @@
 				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
 					<div class="main-search fancy bg-holder">
-						<form>
+						<form action="{% url 'search' %}" method="GET">
 							<div class="row">
-								<div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+								<div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
 									<div class="field-holder">
-										<input type="text" placeholder="Resturant name">
+										<input type="text" name="keyword" placeholder="Resturant name or food name">
 									</div>
 								</div>
 								<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
@@ -34,52 +34,27 @@
 											<li class="select-location">
 												<div class="foodbakery-locations-fields-group foodbakery-focus-out">
 													<span class="foodbakery-search-location-icon"><i class="icon-location"></i></span>
-													<span id="foodbakery_radius_location_open333" class="foodbakery-radius-location"><i class="icon-target5"></i></span>
-													<input type="text" class="location-field-text filter" placeholder="All Locations">
+													
+													<input type="text" name="address" class="location-field-text filter" id="id_address" required placeholder="All Locations">
+													<input type="hidden" name="lat" value="" id="id_latitude">
+													<input type="hidden" name="lng" value="" id="id_longitude">
 												</div>
-												<div class="select-location" id="foodbakery-radius-range333" style="display: none;">
-													<div class="select-popup popup-open">
-														<a id="location_close_popup333" href="javascript:0;" class="location-close-popup">
-															<i class="icon-times"></i></a>
-														<input type="hidden" class="foodbakery-radius" name="foodbakery_radius" value="10">
-														<p>Show with in</p>
-														<input id="ex16b333" type="text" data-value="10" value="10" style="display: none;">
-														<script>
-															jQuery(document).ready(function () {
-																var elem = jQuery("#ex16b333");
-																if (elem.length != "") {
-																	elem.slider({
-																		step: 1,
-																		min: 0,
-																		max: 500,
-																		value: 10,
-																	});
-																	elem.on("slideStop", function () {
-																		var rang_slider_val = elem.val();
-																		jQuery("#ex16b333CurrentSliderValLabel").html(rang_slider_val);
-																		jQuery("#range-hidden-foodbakery-radius333").val(rang_slider_val);
-																		//foodbakery_restaurant_content("333");
-																	});
-																	elem.on("slide", function () {
-																		jQuery("#ex16b333CurrentSliderValLabel").html(elem.val());
-																	});
-																}
-
-																$("#foodbakery_radius_location_open333").click(function () {
-																	$("#foodbakery-radius-range333").show();
-																});
-																$("#location_close_popup333").click(function () {
-																	$("#foodbakery-radius-range333").hide();
-																});
-															});
-														</script>
-														<span>Miles: <span id="ex16b333CurrentSliderValLabel">10</span></span><br>
-														<p class="my-location">of <i class="cs-color icon-location-arrow"></i><a id="foodbakery-geo-location-all" class="cs-color foodbakery-geo-location313324" href="javascript:void(0)">My location</a></p>
-													</div>
-												</div>
+												
 											</li>
 										</ul>
 									</div>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+									<select name="radius" id="radius" style="height: 50px;" required>
+										<option value="" selected>Choose Radius</option>
+										<option value="5">5km</option>
+										<option value="10">10km</option>
+										<option value="15">15km</option>
+										<option value="25">25km</option>
+										<option value="50">50km</option>
+										<option value="75">75km</option>
+										<option value="100">100km</option>
+									</select>
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
 									<div class="field-holder">
