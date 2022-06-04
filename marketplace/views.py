@@ -59,7 +59,7 @@ def vendor_detail(request, vendor_slug):
 
 def add_to_cart(request, food_id):
     if request.user.is_authenticated:
-        if request.is_ajax():
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
             # Check if the food item exists
             try:
                 fooditem = FoodItem.objects.get(id=food_id)
@@ -84,7 +84,7 @@ def add_to_cart(request, food_id):
 
 def decrease_cart(request, food_id):
     if request.user.is_authenticated:
-        if request.is_ajax():
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
             # Check if the food item exists
             try:
                 fooditem = FoodItem.objects.get(id=food_id)
@@ -121,7 +121,7 @@ def cart(request):
 
 def delete_cart(request, cart_id):
     if request.user.is_authenticated:
-        if request.is_ajax():
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
             try:
                 # Check if the cart item exists
                 cart_item = Cart.objects.get(user=request.user, id=cart_id)
