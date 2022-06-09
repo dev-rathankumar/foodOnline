@@ -1,0 +1,36 @@
+{% load static %}
+<div class="page-section restaurant-detail-image-section" style=" background: url({% if user_profile.cover_photo %}{{ user_profile.cover_photo.url }} {% else %} {% static 'images/default-cover.png' %} {% endif %} ) no-repeat scroll 0 0 / cover;">
+    <!-- Container Start -->
+    <div class="container">
+        <!-- Row Start -->
+        <div class="row">
+            <!-- Column Start -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="company-info-detail">
+                    <div class="company-info">
+                        <div class="img-holder">
+                            <figure>
+                                {% if user_profile.profile_picture %}
+                                <img src="{{ user_profile.profile_picture.url }}" alt="Profile Picture">
+                                {% else %}
+                                <img src="{% static 'extra-images/listing-logo18.png' %}" alt="">
+                                {% endif %}
+                            </figure>
+                        </div>
+
+                        <div class="text-holder">
+                            <span class="restaurant-title">{{ user.first_name }} {{ user.last_name }}</span>
+                            <div class="text">
+                                <i class="icon-location"></i>
+                                <p>{{ user.phone_number }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column End -->
+        </div>
+        <!-- Row End -->
+    </div>
+    <!-- Container End -->
+</div>
