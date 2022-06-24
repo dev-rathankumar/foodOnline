@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load static %}
 {% block content %}
 
 <!-- Main Section Start -->
@@ -99,8 +100,15 @@
                                                 </span>
                                             </li>
 
+                                            {% if order.payment_method == 'PayPal' %}
                                             <!-- PayPal Checkout Button -->
                                             <div id="paypal-button-container"></div>
+                                            {% elif order.payment_method == 'RazorPay' %}
+                                            <div id="rzp_payment_button">
+                                                <button class="btn btn-danger w-100 p-2" id="rzp-button1">Pay with RazorPay</button>
+                                                <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                                            </div>
+                                            {% endif %}
                                         </ul>
                                     </div>
                                     
@@ -178,6 +186,57 @@
 
 
     }).render('#paypal-button-container');
+
+    // RazorPay Payment Gateway
+    var options = {
+            "key": "{{ RZP_KEY_ID }}", // Enter the Key ID generated from the Dashboard
+            "amount": "{{ rzp_amount }}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "FoodOnline",
+            "description": "FoodOnline - Multi Vendor Restaurant Marketplace",
+            "image": "{% static 'logo/foodOnlineLogo.png' %}",
+            "order_id": "{{ rzp_order_id }}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "handler": function (response){
+                // alert(response.razorpay_payment_id);
+                // alert(response.razorpay_order_id);
+                // alert(response.razorpay_signature)
+                // Replace the above to show a success message within this page, e.g.
+                const element = document.getElementById('rzp_payment_button');
+                element.innerHTML = '';
+                element.innerHTML = '<h4 class="text-center"><i class="fa fa-spinner fa-spin"></i> Please wait...</h4>';
+
+                var transaction_id = response.razorpay_payment_id
+                var payment_method = 'RazorPay'
+                var status = 'Success'
+                sendTransaction(transaction_id, payment_method, status)
+            },
+            "prefill": {
+                "name": "{{ order.name }}",
+                "email": "{{ order.email }}",
+                "contact": "{{ order.phone }}"
+            },
+            "notes": {
+                "address": "{{ order.address }}"
+            },
+            "theme": {
+                "color": "#dc3545"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.on('payment.failed', function (response){
+                alert(response.error.code);
+                alert(response.error.description);
+                alert(response.error.source);
+                alert(response.error.step);
+                alert(response.error.reason);
+                alert(response.error.metadata.order_id);
+                alert(response.error.metadata.payment_id);
+        });
+    document.getElementById('rzp-button1').onclick = function(e){
+        rzp1.open();
+        e.preventDefault();
+    }
+    // RazorPay Payment Gateway
 
 
     // Send the data to payments view to store in the database
