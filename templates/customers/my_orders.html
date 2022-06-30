@@ -18,32 +18,8 @@
                 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                     <div class="user-dashboard loader-holder">
                         <div class="user-holder">
-                            <h5 class="text-uppercase">Overview</h5>
-                            <div class="row">
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            Total Orders
-                                        </div>
-                                        <div class="card-body text-center">
-                                            <a href="#"><h5 class="card-title">{{ orders_count }}</h5></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            Logged in as: <b>{{ user.email }}</b>
-                                        </div>
-                                        <div class="card-body text-center">
-                                            <a href="{% url 'cprofile' %}"><h5 class="card-title"><i class="fa fa-edit"></i> Edit profile</h5></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
                             
-                            <h5 class="text-uppercase">Recent Orders</h5>
+                            <h5 class="text-uppercase">My Orders</h5>
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="user-orders-list">
@@ -60,14 +36,14 @@
                                                   </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {% for order in recent_orders %}
+                                                    {% for order in orders %}
                                                   <tr>
-                                                    <td>{{ order.order_number }}</td>
+                                                    <td><b><a href="{% url 'order_detail' order.order_number %}" class="text-dark">{{ order.order_number }}</a></b></td>
                                                     <td>{{ order.name }}</td>
                                                     <td>${{ order.total }}</td>
                                                     <td>{{ order.status }}</td>
                                                     <td>{{ order.created_at }}</td>
-                                                    <td><a href="" class="btn btn-danger">Details</a></td>
+                                                    <td><a href="{% url 'order_detail' order.order_number %}" class="btn btn-danger">Details</a></td>
                                                   </tr>
                                                   {% endfor %}
                                                 </tbody>

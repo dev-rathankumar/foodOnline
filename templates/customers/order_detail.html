@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'includes/alerts.html' %}
+
+<!-- Main Section Start -->
+<div class="main-section">
+    
+    {% include 'customers/cover.html' %}
+    <div class="page-section account-header buyer-logged-in">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <!-- Load the sidebar here -->
+                    {% include 'includes/c_sidebar.html' %}
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <div class="user-dashboard loader-holder">
+                        <div class="user-holder">
+                           
+                            <div class="container">
+                                <div class="justify-content-center row">
+                                    <div class="col-md-12">
+                                        <div class="bg-white p-1">
+                                            <img src="{% static 'logo/foodOnlineLogo.png' %}" alt="foodOnline Logo" width="300">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h4 class="mt-2 mb-3">Thank you for your order.</h4>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                    <p class="mb-0">{{ order.name }}</p>
+                                                    <p class="mb-0">{{ order.address }}</p>
+                                                    <p class="mb-0">{{ order.phone }}</p>
+                                                    <p class="mb-0">{{ order.email }}</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <h6>Hello {{ order.name }}, </h6><span>Review your order details below.</span>
+                                            <hr>
+                            
+                                            <div class="d-flex justify-content-between">
+                                                <div>
+                                                    <span class="d-block">Order Date: </span><span class="font-weight-bold">{{ order.created_at }}</span>
+                                                </div>
+                                                <div>
+                                                    <span class="d-block">Order No: </span><span class="font-weight-bold">{{ order.order_number }}</span>
+                                                </div>
+                                                <div>
+                                                    <span class="d-block">Payment Method: </span><span class="font-weight-bold">{{ order.payment_method }}</span>
+                                                </div>
+                                                <div>
+                                                    <span class="d-block">Transaction ID: </span><span class="font-weight-bold">{{ order.payment.transaction_id }}</span>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <table class="table">
+                                                <tbody>
+                                                    {% for item in ordered_food %}
+                                                    <tr>
+                                                        <td><img src="{{ item.fooditem.image.url }}" width="60" alt="Food Image"></td>
+                                                        <td>
+                                                            <p class="mb-0"><b>{{ item.fooditem }}</b></p>
+                                                            <a class="text-muted" href="{% url 'vendor_detail' item.fooditem.vendor.vendor_slug %}">{{ item.fooditem.vendor.vendor_name }}</a>
+                                                        </td>
+                                                        <td>{{ item.quantity }} QTY</td>
+                                                        <td>${{ item.fooditem.price }}</td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                            
+                                            <div class="row mt-5">
+                                                <div class="d-flex justify-content-center col-md-6">
+                                                    <img src="{% static 'images/paid.png' %}" width="200">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <ul>
+                                                        <li style="list-style-type: none;">
+                                                            Subtotal
+                                                            <span class="price float-right">
+                                                                <span class="currency">$</span>
+                                                                <span id="subtotal">{{ subtotal }}</span>
+                                                            </span>
+                                                        </li>
+                            
+                                                        {% for key, value in tax_data.items %}
+                                                            {% for i, j in value.items %}
+                                                                <li style="list-style-type: none;">
+                                                                    {{ key }} <small>({{ i }}%)</small>
+                                                                    <span class="price float-right">
+                                                                        <span class="currency">$</span>
+                                                                        <span id="tax-{{ key }}">{{ j }}</span>
+                                                                    </span>
+                                                                </li>
+                                                            {% endfor %}
+                                                        {% endfor %}
+                            
+                            
+                                                        <li style="list-style-type: none; font-weight: 600;">
+                                                            TOTAL
+                                                            <span class="price float-right">
+                                                                <span class="currency">$</span>
+                                                                <span id="total">{{ order.total }}</span>
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="d-flex justify-content-between">
+                                                <div>
+                                                    <span class="d-block font-weight-bold">Thanks for ordering with us.</span>
+                                                    <span>FoodOnline Team</span>
+                                                </div>
+                                                <div class="d-flex justify-content-end align-items-end">
+                                                    <span class="d-block font-weight-bold">Need help?</span>
+                                                    <span>Call - +91 0011223344</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main Section End -->
+
+
+{% endblock %}
