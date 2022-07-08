@@ -37,6 +37,15 @@
 	<!-- Include the PayPal JavaScript SDK -->
     <script src="https://www.paypal.com/sdk/js?client-id={{ PAYPAL_CLIENT_ID }}&currency=USD"></script>
 
+	<!-- Include Datatables plugin script and css -->
+	<link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+	<script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+	<script>
+		$(document).ready( function () {
+			$('#myOrdersTable').DataTable();
+		} );
+	</script>
+
 	<style>
 		body, .main-section p, .mce-content-body p{
 			font:Normal  14px/24px "Open Sans", sans-serif;letter-spacing: 0px;text-transform: none;color: #515151 !important;
