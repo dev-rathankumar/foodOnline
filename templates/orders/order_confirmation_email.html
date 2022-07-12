@@ -1,9 +1,111 @@
-{% autoescape off %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" lang="en">
 
-Hi {{user.first_name}},
+<head><link rel="stylesheet" type="text/css" hs-webfonts="true" href="https://fonts.googleapis.com/css?family=Lato|Lato:i,b,bi">
+    <meta property="og:title" content="Email template">  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <style type="text/css">
+      #email {
+        margin: auto;
+        width: 600px;
+        background-color: white;
+      }  
+      .activate-btn{
+        font: inherit;
+        background-color: #C33332;
+        border: none;
+        padding: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 900;
+        border-radius: 5px; 
+        text-decoration: none;
+      }      
+    </style>    
+  </head>    
+<body bgcolor="#F5F8FA" style="width: 100%; margin: auto 0; padding:0; font-family:Lato, sans-serif; font-size:16px; color:#33475B; word-break:break-word">
+  
+<div id="email">
+  <table role="presentation" width="100%">
+    <tr>
+    <td  align="center" style="color: white;">
+     <img alt="Logo" src="https://rathank.com/foodonline/logo/logo.png" width="400px" align="middle">
+      </td>
+  </table>
 
-Thank you for your order.
-Your order number: {{ order.order_number }}
-Transaction ID: {{ order.payment.transaction_id }}
+  <table bgcolor="#EAF0F6" width="100%" role="presentation" border="0" cellpadding="0" cellspacing="10px" style="padding: 30px 30px 60px 60px;">
+    <tr>
+        <td>
+            <h2 style="text-align:center;">Thank you for your order</h2>
+            <p>Review your order information below.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Order date: {{ order.created_at }}</td>
+    </tr>
+    <tr>
+        <td>Order number: {{ order.order_number }}</td>
+    </tr>
+    <tr>
+        <td>Payment method: {{ order.payment_method }}</td>
+    </tr>
+    <tr>
+        <td>Transaction ID: {{ order.payment }}</td>
+    </tr>
+  </table>
 
-{% endautoescape %}
+  <!-- Ordered food table -->
+  <table bgcolor="#EAF0F6" width="100%" role="presentation" border="0" cellpadding="0" cellspacing="10px" style="padding: 30px 30px 60px 60px;">
+
+    <tbody>
+        <tr>
+            <th>Image</th>
+            <th>Food Item</th>
+            <th>Qty</th>
+            <th>Price</th>
+        </tr>
+
+        {% for food in ordered_food %}
+        <tr>
+            <td><img src="http://{{domain}}{{ food.fooditem.image.url }}" alt="Food Image" width="60"></td>
+            <td><p style="margin: 0;">{{ food.fooditem }}</p>
+            <small><a href="http://{{ domain }}{% url 'vendor_detail' food.fooditem.vendor.vendor_slug %}" style="color:#ccc;">{{ food.fooditem.vendor.vendor_name }}</a></small>
+            </td>
+            <td>{{ food.quantity }}</td>
+            <td>${{ food.price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+  </table>
+
+
+  <!-- Order amounts -->
+  <table bgcolor="#EAF0F6" width="100%" role="presentation" border="0" cellpadding="0" cellspacing="10px" style="padding: 30px 30px 60px 60px;">
+    <tbody>
+        <tr>Subtotal: ${{ customer_subtotal }}</tr>
+        
+        {% for key, val in tax_data.items %}
+            {% for i, j in val.items %}
+                <tr>
+                    <td>{{ key }} <small>({{ i }}%)</small> : <span>${{ j }}</span></td>
+                </tr>
+            {% endfor %}
+        {% endfor %}
+
+        <tr>Grand total: ${{ order.total }}</tr>
+    </tbody>
+  </table>
+
+  <table role="presentation" bgcolor="#C33332" width="100%">
+      <tr>
+        <td align="center" style="padding: 15px 15px; color: #fff;">
+          <p>© {% now "Y" %} FoodOnline Marketplace, All Rights Reserved.</p>
+          <a href="http://{{domain}}" style="color:#fff;">Visit Website</a>      
+        </td>
+      </tr>
+  </table> 
+</div>
+</body>
+</html>
