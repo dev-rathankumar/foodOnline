@@ -38,9 +38,7 @@ jQuery(document).ready(function () {
     /*Location Menu Function End*/
 
     /*Fitvideo Script*/
-    if (jQuery("body").length != '') {
-        jQuery("body").fitVids();
-    }
+    
     var swiper = new Swiper('.testimonial.fancy .swiper-container', {
         pagination: '.swiper-pagination',
         paginationClickable: true,
@@ -276,26 +274,26 @@ jQuery(document).ready(function () {
     // }
     /*Location Menu Function End*/
     /*Chosen Select Functions Start*/
-    if (jQuery(".chosen-select, .chosen-select-deselect, .chosen-select-no-single, .chosen-select-no-results, .chosen-select-width").length != '') {
-        var config = {
-            '.chosen-select': {},
-            '.chosen-select-deselect': {
-                allow_single_deselect: true
-            },
-            '.chosen-select-no-single': {
-                disable_search_threshold: 10
-            },
-            '.chosen-select-no-results': {
-                no_results_text: 'Oops, nothing found!'
-            },
-            '.chosen-select-width': {
-                width: "95%"
-            }
-        }
-        for (var selector in config) {
-            $(selector).chosen(config[selector]);
-        }
-    }
+    // if (jQuery(".chosen-select, .chosen-select-deselect, .chosen-select-no-single, .chosen-select-no-results, .chosen-select-width").length != '') {
+    //     var config = {
+    //         '.chosen-select': {},
+    //         '.chosen-select-deselect': {
+    //             allow_single_deselect: true
+    //         },
+    //         '.chosen-select-no-single': {
+    //             disable_search_threshold: 10
+    //         },
+    //         '.chosen-select-no-results': {
+    //             no_results_text: 'Oops, nothing found!'
+    //         },
+    //         '.chosen-select-width': {
+    //             width: "95%"
+    //         }
+    //     }
+    //     for (var selector in config) {
+    //         $(selector).chosen(config[selector]);
+    //     }
+    // }
 
     /*Chosen Select Functions End*/
     /* Date Time picker */
@@ -496,37 +494,7 @@ jQuery(document).ready(function () {
 
 });
 /*----------Window Load Function Start----------*/
-jQuery(window).load(function () {
-    /*Masonry Function Start*/
-    jQuery('.grid').masonry({
-        itemSelector: '.grid-item',
-    });
-    /*Masonry Function End */
-    /*Load More Functions Start*/
-    jQuery(function () {
-        jQuery(".review-listing > ul#mylist > li").slice(0, 3).show();
-        jQuery("#load-more").click(function (e) {
-            e.preventDefault();
-            jQuery(".review-listing > ul#mylist > li:hidden").slice(0, 1).show();
-            if (jQuery(".review-listing > ul#mylist > li:hidden").length == 0) {
-                alert("No More Show");
-            }
-        });
-    });
-    /*Load More Functions End*/
-    //	
-    //	wow = new WOW(
-    //      {
-    //        animateClass: 'animated',
-    //        offset: 100,
-    //        callback: function(box) {
-    //          console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
-    //        }
-    //      }
-    //    );
-    //    wow.init();
 
-});
 
 /* ---------------------------------------------------------------------------
  * Post like Counter 

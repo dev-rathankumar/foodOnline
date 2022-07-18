@@ -11430,7 +11430,7 @@ jQuery(document).ready(function () {
         this.element = element;
         this.width = width;
         this.order = eleOrder;
-        this.offsetTop = element.offset().top;
+        // this.offsetTop = element.offset().top;
         this.defualtWidth = element.parent().width();
         this.defualtPos = elePos;
         this.stopper = stopTarget;
@@ -11562,9 +11562,9 @@ jQuery(document).ready(function () {
                 width: "95%"
             }
         }
-        for (var selector in config) {
-            $(selector).chosen(config[selector]);
-        }
+        // for (var selector in config) {
+        //     $(selector).chosen(config[selector]);
+        // }
     };
     /*Chosen Select Functions End*/
     /* Date Time picker */
@@ -11706,14 +11706,14 @@ jQuery(document).ready(function () {
     });
     /*Delivery Timing Dropdown Functions End*/
 
-    if ($(window).width() > 991) {
-        if (jQuery(".sticky-sidebar").length != '') {
-            $('.sticky-sidebar')
-                .theiaStickySidebar({
-                    additionalMarginTop: 30
-                });
-        }
-    }
+    // if ($(window).width() > 991) {
+    //     if (jQuery(".sticky-sidebar").length != '') {
+    //         $('.sticky-sidebar')
+    //             .theiaStickySidebar({
+    //                 additionalMarginTop: 30
+    //             });
+    //     }
+    // }
     /*Sticky Function End*/
 
     /*Location Popup Function Start*/
@@ -11727,30 +11727,6 @@ jQuery(document).ready(function () {
 
 });
 /*----------Window Load Function Start----------*/
-jQuery(window).load(function () {
-    //Listing_Filter_li();
-    /*Masonry Function Start*/
-    if ($('.grid').length !== 0) {
-        if (typeof jQuery(document).masonry != "undefined") {
-            $('.grid').masonry({
-                itemSelector: '.grid-item',
-            });
-        }
-    }
-    /*Masonry Function End */
 
-    /*Load More Functions Start*/
-    jQuery(function () {
-        jQuery(".review-listing > ul#mylist > li").slice(0, 3).show();
-        jQuery("#load-more").click(function (e) {
-            e.preventDefault();
-            jQuery(".review-listing > ul#mylist > li:hidden").slice(0, 1).show();
-            if (jQuery(".review-listing > ul#mylist > li:hidden").length == 0) {
-                alert("No More Show");
-            }
-        });
-    });
-    /*Load More Functions End*/
-});
 /*HTML Functions End*/
 

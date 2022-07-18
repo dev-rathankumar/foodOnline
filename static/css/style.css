@@ -2108,7 +2108,7 @@ blockquote, q { quotes: none; }
 blockquote { padding: 0 20px; border-left: 3px solid #ff0c00; color: #ff0c00; font-size: 17px; font-style: italic; font-weight: 600; }
 blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
 /* Input Style */
-select { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-box-shadow: none; box-shadow: none; box-sizing: border-box; color: #999; font-size: 14px; height: 36px; line-height: 36px; padding: 10px 15px; width: 100%; border: 1px solid #e4e4e4; font-family: 'Open Sans', sans-serif; font-weight: 400; }
+select { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-box-shadow: none; box-shadow: none; box-sizing: border-box; color: #999; font-size: 14px; height: 36px; line-height: 36px; padding: 5px 15px; width: 100%; border: 1px solid #e4e4e4; font-family: 'Open Sans', sans-serif; font-weight: 400; }
 textarea, input[type=date], input[type=datetime], input[type=datetime-local], input[type=email], input[type=month], input[type=number], input[type=password], input[type=range], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week] { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-box-shadow: none; box-shadow: none; box-sizing: border-box; color: #9097a1; font-size: 12px; height: 40px; line-height: 40px; padding: 0 15px; width: 100%; border: 1px solid #eceef4; font-family: 'Open Sans', sans-serif; font-weight: 400; }
 textarea { height: 175px; }
 /* Field Holder Input Style */
@@ -2140,9 +2140,10 @@ table { background-color: transparent; margin-bottom: 15px; width: 100%; border-
 th { text-align: left; }
 table > tbody + tbody { border-top: 2px solid #d2d2d2; }
 table > thead > tr > th { border-bottom: 2px solid #d2d2d2; vertical-align: bottom; }
-table > thead > tr > th, table > tbody > tr > th, table > tfoot > tr > th, table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td { border-top: 1px solid #d2d2d2; border: 1px solid #d2d2d2; line-height: 2.5; padding-left: 7px; vertical-align: top; text-align: center; padding: 12px 16px; }
+table > thead > tr > th, table > tbody > tr > th, table > tfoot > tr > th, table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td { border-top: 1px solid #d2d2d2; border: 1px solid #d2d2d2; line-height: 0.5; padding-left: 7px; vertical-align: top; text-align: center; padding: 12px 16px; }
 .table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > th, .table > caption + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > td, .table > thead:first-child > tr:first-child > td { border-top: 1px solid #d2d2d2; }
 table > caption + thead > tr:first-child > th, table > colgroup + thead > tr:first-child > th, table > thead:first-child > tr:first-child > th, table > caption + thead > tr:first-child > td, table > colgroup + thead > tr:first-child > td, table > thead:first-child > tr:first-child > td { border-bottom: 0; }
+.table td, .table th{vertical-align: middle !important;}
 /* Table typo style End */
 /* Rich Editor Style */
 .rich_editor_text h1, .rich_editor_text h2, .rich_editor_text h3, .rich_editor_text h4, .rich_editor_text h5, .rich_editor_text h6 { margin-bottom: 10px; }
